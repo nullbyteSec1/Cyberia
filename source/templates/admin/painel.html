@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberia Coffee - Moderation Panel</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:"Courier New","SF Mono",Monaco,monospace;
+            background:#0a0a0a;
+            color:#c0c0c0;
+            line-height:1.6;
+            padding:2rem;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+            background:#0f0f0f;
+            border:1px solid #2a2a2a;
+        }
+
+        header{
+            padding:2rem;
+            border-bottom:1px solid #2a2a2a;
+        }
+
+        h1{
+            color:#e0e0e0;
+            font-size:1.6rem;
+            font-weight:normal;
+        }
+
+        header p{
+            color:#666;
+            font-size:.85rem;
+            margin-top:.5rem;
+        }
+
+        section{
+            padding:2rem;
+            border-bottom:1px solid #2a2a2a;
+        }
+
+        section:last-child{
+            border-bottom:none;
+        }
+
+        h2{
+            color:#e0e0e0;
+            font-size:1rem;
+            font-weight:normal;
+            margin-bottom:1rem;
+        }
+
+        form{
+            display:flex;
+            gap:.75rem;
+            flex-wrap:wrap;
+        }
+
+        input{
+            flex:1;
+            min-width:220px;
+            background:#0a0a0a;
+            border:1px solid #2a2a2a;
+            color:#c0c0c0;
+            padding:.75rem;
+            font-family:inherit;
+        }
+
+        input::placeholder{
+            color:#555;
+        }
+
+        input:focus{
+            outline:none;
+            border-color:#666;
+        }
+
+        button{
+            background:#1a1a1a;
+            color:#c0c0c0;
+            border:1px solid #333;
+            padding:.75rem 1.5rem;
+            cursor:pointer;
+            font-family:inherit;
+            transition:.2s;
+        }
+
+        button:hover{
+            background:#222;
+            border-color:#666;
+            color:#e0e0e0;
+        }
+
+        .report{
+            background:#111;
+            border-left:3px solid #2a2a2a;
+            padding:1rem;
+            margin-bottom:1rem;
+        }
+
+        .report:last-child{
+            margin-bottom:0;
+        }
+
+        .report h3{
+            color:#e0e0e0;
+            font-weight:normal;
+            margin-bottom:.6rem;
+            font-size:1rem;
+        }
+
+        .report p{
+            color:#b0b0b0;
+            white-space:pre-wrap;
+            word-break:break-word;
+            font-size:.9rem;
+        }
+
+        .empty{
+            color:#666;
+            font-style:italic;
+        }
+
+        @media(max-width:700px){
+
+            body{
+                padding:1rem;
+            }
+
+            header,
+            section{
+                padding:1.5rem;
+            }
+
+            form{
+                flex-direction:column;
+            }
+
+            input,
+            button{
+                width:100%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Moderator Panel</h1>
+        <p>Community reports and moderation tools.</p>
+    </header>
+
+    <section>
+
+        <h2>Delete Post</h2>
+
+        <form action="/admin/api/delete" method="POST">
+            <input
+                type="text"
+                name="post_id"
+                placeholder="Post ID"
+                required>
+            <button type="submit">Delete</button>
+        </form>
+
+    </section>
+
+    <section>
+
+        <h2>Community Reports</h2>
+
+        {% if reports %}
+
+            {% for r in reports %}
+
+            <article class="report">
+                <h3>{{ r.report_header }}</h3>
+                <p>{{ r.report_body }}</p>
+            </article>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="empty">No reports available.</p>
+
+        {% endif %}
+
+    </section>
+
+</div>
+
+</body>
+</html>

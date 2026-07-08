@@ -1,0 +1,9 @@
+lib/
+bin/
+__pycache__/
+include/
+instance/
+uploads/
+pyvenv.cfg
+core
+.swp

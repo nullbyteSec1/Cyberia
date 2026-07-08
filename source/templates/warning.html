@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberia Coffee - Request Failed</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:"Courier New","SF Mono",Monaco,monospace;
+            background:#0a0a0a;
+            color:#c0c0c0;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:2rem;
+            line-height:1.6;
+        }
+
+        .warning-box{
+            width:100%;
+            max-width:700px;
+            background:#0f0f0f;
+            border:1px solid #2a2a2a;
+        }
+
+        header{
+            padding:2rem;
+            border-bottom:1px solid #2a2a2a;
+        }
+
+        h1{
+            color:#e0e0e0;
+            font-size:1.5rem;
+            font-weight:normal;
+            margin-bottom:.5rem;
+        }
+
+        .face{
+            color:#888;
+            font-size:1rem;
+        }
+
+        main{
+            padding:2rem;
+        }
+
+        .message{
+            background:#111;
+            border-left:3px solid #2a2a2a;
+            padding:1rem;
+            color:#b0b0b0;
+            word-break:break-word;
+        }
+
+        .tips{
+            margin-top:2rem;
+        }
+
+        .tips h2{
+            color:#e0e0e0;
+            font-size:1rem;
+            font-weight:normal;
+            margin-bottom:.75rem;
+        }
+
+        .tips ul{
+            list-style:none;
+        }
+
+        .tips li{
+            padding:.35rem 0;
+            color:#999;
+        }
+
+        footer{
+            border-top:1px solid #2a2a2a;
+            padding:1rem 2rem;
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:1rem;
+            font-size:.85rem;
+        }
+
+        a{
+            color:#999;
+            text-decoration:none;
+        }
+
+        a:hover{
+            color:#e0e0e0;
+        }
+
+        @media(max-width:700px){
+
+            body{
+                padding:1rem;
+            }
+
+            header,
+            main{
+                padding:1.5rem;
+            }
+
+            footer{
+                flex-direction:column;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<main class="warning-box">
+
+    <header>
+        <h1>Request failed <span class="face">:/</span></h1>
+        <p>The server couldn't complete your request.</p>
+    </header>
+
+    <section>
+
+        <div class="message">
+            {{ error_text }}
+        </div>
+
+        <div class="tips">
+            <h2>Possible causes</h2>
+
+            <ul>
+                <li>> Invalid or incomplete data :/</li>
+                <li>> File rejected or unsupported ;-;</li>
+                <li>> Resource not found :|</li>
+                <li>> Temporary server issue :P</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <footer>
+        <a href="/">Return to board</a>
+        <span>(╯°□°）╯</span>
+    </footer>
+
+</main>
+
+</body>
+</html>

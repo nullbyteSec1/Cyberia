@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberia Coffee - Moderator Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:"Courier New","SF Mono",Monaco,monospace;
+            background:#0a0a0a;
+            color:#c0c0c0;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            line-height:1.6;
+            padding:2rem;
+        }
+
+        .login-box{
+            width:100%;
+            max-width:420px;
+            background:#0f0f0f;
+            border:1px solid #2a2a2a;
+        }
+
+        header{
+            padding:2rem;
+            border-bottom:1px solid #2a2a2a;
+            text-align:center;
+        }
+
+        h1{
+            font-size:1.5rem;
+            font-weight:normal;
+            color:#e0e0e0;
+            letter-spacing:-0.5px;
+            margin-bottom:.5rem;
+        }
+
+        header p{
+            color:#666;
+            font-size:.85rem;
+        }
+
+        form{
+            padding:2rem;
+        }
+
+        .field{
+            margin-bottom:1.25rem;
+        }
+
+        label{
+            display:block;
+            color:#999;
+            font-size:.8rem;
+            margin-bottom:.5rem;
+        }
+
+        input{
+            width:100%;
+            background:#0a0a0a;
+            border:1px solid #2a2a2a;
+            color:#c0c0c0;
+            font-family:inherit;
+            font-size:.9rem;
+            padding:.8rem;
+        }
+
+        input::placeholder{
+            color:#555;
+        }
+
+        input:focus{
+            outline:none;
+            border-color:#666;
+        }
+
+        button{
+            width:100%;
+            background:#1a1a1a;
+            color:#c0c0c0;
+            border:1px solid #333;
+            padding:.8rem;
+            font-family:inherit;
+            font-size:.9rem;
+            cursor:pointer;
+            transition:.2s;
+        }
+
+        button:hover{
+            background:#222;
+            border-color:#666;
+            color:#e0e0e0;
+        }
+
+        footer{
+            border-top:1px solid #2a2a2a;
+            padding:1rem 2rem;
+            text-align:center;
+            font-size:.75rem;
+            color:#555;
+        }
+
+        a{
+            color:#999;
+            text-decoration:none;
+        }
+
+        a:hover{
+            color:#e0e0e0;
+        }
+
+        @media (max-width:600px){
+            body{
+                padding:1rem;
+            }
+
+            header,
+            form{
+                padding:1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="login-box">
+
+        <header>
+            <h1>Cyberia Coffee</h1>
+            <p>Moderator authentication required.</p>
+        </header>
+
+        <form method="POST" action="/admin/login">
+
+            <div class="field">
+                <label for="username">Username</label>
+                <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    autocomplete="username"
+                    required
+                    placeholder="username">
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                    placeholder="password">
+            </div>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <footer>
+            <a href="/">Return to board</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>
