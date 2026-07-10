@@ -140,33 +140,14 @@
             <p>Moderator authentication required.</p>
         </header>
 
-        <form method="POST" action="/admin/login">
-
-            <div class="field">
-                <label for="username">Username</label>
-                <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    autocomplete="username"
-                    required
-                    placeholder="username">
-            </div>
-
-            <div class="field">
-                <label for="password">Password</label>
-                <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    autocomplete="current-password"
-                    required
-                    placeholder="password">
-            </div>
-
-            <button type="submit">Login</button>
-
-        </form>
+        <form method="POST">
+	 {{ form.hidden_tag() }}
+	 {{ form.username.label }} 
+	 {{ form.username() }} 
+	 {{ form.password.label }} 
+	 {{ form.password() }}
+	 {{ form.submit() }}
+	</form>
 
         <footer>
             <a href="/">Return to board</a>

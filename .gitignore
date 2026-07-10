@@ -6,4 +6,5 @@ instance/
 uploads/
 pyvenv.cfg
 core
-.swp
+config.json
+*.swp

@@ -165,21 +165,15 @@
 
     <section>
 
-        <h2>Delete Post</h2>
-
-        <form action="/admin/api/delete" method="POST">
-            <input
-                type="text"
-                name="post_id"
-                placeholder="Post ID"
-                required>
-            <button type="submit">Delete</button>
+	    <h2>Delete Post </h2>
+        <form method="POST">
+		{{ form.hidden_tag() }}
+		{{ form.target_id_post.label }}
+		{{ form.target_id_post() }}
+		{{ form.submit() }}
         </form>
-
     </section>
-
     <section>
-
         <h2>Community Reports</h2>
 
         {% if reports %}
@@ -200,8 +194,9 @@
         {% endif %}
 
     </section>
-
+    <footer>
+	    <a href="/">back to board</a> 
+    </footer>
 </div>
-
-</body>
+</boby>
 </html>

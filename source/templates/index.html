@@ -62,6 +62,51 @@ body {
     color: #c0c0c0;
     line-height: 1.6;
 }
+#post_body {
+    width: 100%;
+    padding: 0.8rem;
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
+    color: #c0c0c0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    resize: vertical;
+}
+
+#post_body:focus {
+    outline: none;
+    border-color: #555;
+}
+
+#image {
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
+    padding: 0.6rem;
+    color: #c0c0c0;
+    font-family: monospace;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+#submit {
+    background: #1a1a1a;
+    color: #c0c0c0;
+    border: 1px solid #333;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+#submit:hover {
+    background: #222;
+    border-color: #666;
+    color: #e0e0e0;
+}
 
 .main-content {
     margin-left: 260px;
@@ -113,58 +158,6 @@ header p {
     font-size: 0.9rem;
     margin-top: 0.75rem;
     line-height: 1.5;
-}
-
-form {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #2a2a2a;
-}
-
-textarea {
-    width: 100%;
-    padding: 0.8rem;
-    background: #0f0f0f;
-    border: 1px solid #2a2a2a;
-    color: #c0c0c0;
-    font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-    resize: vertical;
-}
-
-textarea:focus {
-    outline: none;
-    border-color: #555;
-}
-
-input[type="file"] {
-    background: #0f0f0f;
-    border: 1px solid #2a2a2a;
-    padding: 0.6rem;
-    color: #c0c0c0;
-    font-family: monospace;
-    font-size: 0.8rem;
-    width: 100%;
-    margin-bottom: 0.75rem;
-}
-
-button {
-    background: #1a1a1a;
-    color: #c0c0c0;
-    border: 1px solid #333;
-    padding: 0.6rem 1.2rem;
-    cursor: pointer;
-    font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-    transition: all 0.2s ease;
-    width: 100%;
-}
-
-button:hover {
-    background: #222;
-    border-color: #666;
-    color: #e0e0e0;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -219,10 +212,12 @@ button:hover {
 		    <p>id:{{ post.id }}  </p>
                 </div>
                 {% endfor %}
-                <form action="/send/post" method="POST" enctype="multipart/form-data">
-                    <textarea name="content" placeholder="message"></textarea>
-                    <input type="file" name="image" accept=".jpg">
-                    <button type="submit">send</button>
+                <form method="POST" enctype="multipart/form-data">
+			{{ form.hidden_tag() }}
+			{{ form.post_body.label }}
+			{{ form.post_body() }}
+			{{ form.image() }}
+			{{ form.submit() }}
                 </form>
             </main>
         </div>

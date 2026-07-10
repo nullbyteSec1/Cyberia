@@ -1,2 +1,4 @@
 # Cyberia
-imageboard :/
+open source and Anonymous imageboard
+
+

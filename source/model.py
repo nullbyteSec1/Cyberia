@@ -45,14 +45,13 @@ class moderator_accounts(db.Model):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-        password_hashed = bcrypt.hashpw("admin".encode(),bcrypt.gensalt())
-        admin_test = moderator_accounts(username="admin",password=password_hashed)
+    
         if not Topics.query.filter_by(name="general").first():
             topic_general = Topics(name="general")
-            topic_iajalibreak = Topics(name="ia_jalibreak")
-            topic_opsec = Topics(name="opsec")
+            topic_programming = Topics(name="programmimg")
+            topic_memes = Topics(name="memes")
 
-            db.session.add_all([topic_general, topic_iajalibreak, topic_opsec])
+            db.session.add_all([topic_general,topic_programming,topic_memes])
             db.session.commit()
             print("Tópicos criados com sucesso!")
         else:

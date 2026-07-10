@@ -153,28 +153,15 @@
     </header>
 
     <form method="POST" action="/reports">
+	{{ form.hidden_tag()  }}
 
-        <div class="field">
-            <label for="report_header">Title</label>
-            <input
-                id="report_header"
-                name="report_header"
-                type="text"
-                maxlength="80"
-                required
-                placeholder="Brief description">
-        </div>
+	{{ form.report_header.label }}
+	{{ form.report_header() }}
 
-        <div class="field">
-            <label for="report_body">Details</label>
-            <textarea
-                id="report_body"
-                name="report_body"
-                required
-                placeholder="Describe the issue. Include post IDs, board names or any information that may help the moderators."></textarea>
-        </div>
+	{{ form.report_body.label }}
+	{{ form.report_body() }} 
 
-        <button type="submit">Submit Report</button>
+	{{ form.submit() }}
 
     </form>
 

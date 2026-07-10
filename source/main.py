@@ -1,15 +1,7 @@
 from model import db,app
 from routes.public import public_bp 
 from routes.admin import admin_bp
-import json
-
-with open("config.json","r",encoding="utf-8") as config:
-    data = json.load(config) 
-
-
-hosting = data["hosting"]
-porting = data["porting"]
-secret_key = data["secret_key"]
+from config import hosting,porting,secret_key
 
 if __name__ == "__main__":
     with app.app_context():
